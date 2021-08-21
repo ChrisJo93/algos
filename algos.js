@@ -18,3 +18,17 @@ let result = linearSearch(item, item.length, 100);
 result == -1
   ? document.write('Item not found')
   : document.write(`Item is at index ${result}`);
+
+function simpleRateLimiter(maxRequests, window, requestTimestamps) {
+  let arr = [];
+
+  for (i = 0; i < requestTimestamps; i++) {
+    if (
+      requestTimestamps[i] > window - 1 &&
+      arr.includes('true').length > !maxRequests
+    ) {
+      arr.push(false);
+    } else arr.push(true);
+  }
+  return arr;
+}
